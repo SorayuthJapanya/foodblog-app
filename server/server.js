@@ -12,9 +12,15 @@ const { userRoutes } = require("./routes/user.routes.js");
 const app = express();
 const port = process.env.PORT || 5001;
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:80",
+  "http://foodblog.local",
+];
+
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || "http://localhost:5173",
+    origin: allowedOrigins,
     credentials: true,
   })
 );
